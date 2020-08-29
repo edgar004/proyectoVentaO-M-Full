@@ -1,0 +1,1 @@
+ cn = DriverManager.getConnection("jdbc:mysql://localhost/facturacion99","root","melissa10");

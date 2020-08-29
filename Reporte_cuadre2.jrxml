@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="216" pageHeight="360" columnWidth="176" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="700bef4f-b53a-4ff7-884f-a1c606d530f7">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="facturas" class="java.lang.String"/>
+	<parameter name="credito_cobrado" class="java.lang.String"/>
+	<parameter name="total_ventas" class="java.lang.String"/>
+	<parameter name="monto_caja" class="java.lang.String"/>
+	<parameter name="diferencia" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.String"/>
+	<title>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="-13" width="125" height="19" uuid="e7ed61a5-725c-40cc-ba4b-a7feb79144b5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUADRE DE LA FECHA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="121" y="-13" width="54" height="19" uuid="2c200810-7428-45ce-953a-4b6758307696"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="32" width="66" height="19" uuid="74644064-ec36-4d4c-96af-de2c7cbe22ba"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{credito_cobrado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="21" width="176" height="15" uuid="d8be17e7-4842-49ac-9b39-6569763e0a37"/>
+				<text><![CDATA[-------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="55" width="60" height="14" uuid="204b20b9-ffc5-44e5-bc7c-4d36a3dc907d"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL VENTAS $]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="63" y="55" width="58" height="14" uuid="ef90a66e-fbba-48de-9d3c-cab2e4d7a5bd"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_ventas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="70" width="71" height="14" uuid="5b9f7f49-9aaa-4079-8992-b66088542bcd"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTO EN CAJA $]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="46" width="176" height="19" uuid="d9e27584-7cb4-40ce-971e-7c3b2a4a4239"/>
+				<text><![CDATA[-------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="18" width="85" height="15" uuid="bb6adfd4-f224-4ff5-8f80-bf5d2add7f5d"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CREDITOS COBRADOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="-66" width="78" height="14" uuid="f13e0ff7-c8eb-495c-937b-1595ac394eb7"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL FACTURAS ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="3" width="60" height="14" uuid="0e8d0758-4e1d-45af-9ac5-901a987e03be"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIFERENCIA $]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="55" y="3" width="73" height="14" uuid="2e3d1fef-4754-4282-b5fb-6d98ae4171e4"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{diferencia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="69" y="-37" width="76" height="14" uuid="314f6e9c-ebff-43bf-83fe-72e5f5a3c35c"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{monto_caja}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="-106" width="176" height="19" uuid="b3f3c77f-850d-4e5d-980f-51bcc168716d"/>
+				<text><![CDATA[-------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="14" y="-74" width="43" height="19" uuid="8d6e502e-45fd-4725-af21-edc37ca0f08e"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{facturas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="69" y="11" width="19" height="9" uuid="cca8b0b5-0542-4f2d-9834-da11a7233f92"/>
+				<textElement>
+					<font size="1"/>
+				</textElement>
+				<text><![CDATA[@]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+</jasperReport>
