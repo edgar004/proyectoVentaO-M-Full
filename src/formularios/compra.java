@@ -356,9 +356,9 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         des_art = new javax.swing.JTextField();
         cant = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
-        precio3 = new javax.swing.JTextField();
         lb_fecha5 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
+        precio3 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("COMPRA");
@@ -373,7 +373,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\comprar.png")); // NOI18N
         jLabel5.setText("COMPRA");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 150, -1));
 
@@ -447,7 +446,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         jPanel2.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 170, 25));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\lupa.png")); // NOI18N
         jLabel1.setText("BUSCAR");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 90, 25));
 
@@ -528,7 +526,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         });
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\cruzar.png")); // NOI18N
         jButton3.setText("Cancelar");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.setEnabled(false);
@@ -539,7 +536,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         });
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\anadir (1).png")); // NOI18N
         jButton4.setText("Nuevo");
         jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -549,7 +545,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         });
 
         jButton5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\salida.png")); // NOI18N
         jButton5.setText("Salir");
         jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -620,7 +615,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(701, 523, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\lupa.png")); // NOI18N
         jLabel9.setText("BUSCAR PRODUCTO");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 220, 210, 40));
 
@@ -662,7 +656,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         jPanel1.add(cant, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 260, 141, 32));
 
         jButton6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\centro-comercial.png")); // NOI18N
         jButton6.setText("Agregar ");
         jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -672,9 +665,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         });
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 110, 33));
 
-        precio3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(precio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 141, 32));
-
         lb_fecha5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lb_fecha5.setText("CODIGO");
         jPanel1.add(lb_fecha5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 266, -1, 30));
@@ -682,6 +672,9 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         id.setBackground(new java.awt.Color(240, 240, 240));
         id.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 260, 86, 34));
+
+        precio3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.##"))));
+        jPanel1.add(precio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 150, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -870,7 +863,7 @@ if (c<'0'  || c >'9') evt.consume();
     private javax.swing.JLabel lb_fecha5;
     private javax.swing.JLabel lb_fecha6;
     private javax.swing.JLabel lb_usuario1;
-    private javax.swing.JTextField precio3;
+    private javax.swing.JFormattedTextField precio3;
     public static javax.swing.JTextField proveedor;
     private javax.swing.JTable tabla_art;
     private javax.swing.JTextField total;

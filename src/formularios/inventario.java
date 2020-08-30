@@ -15,9 +15,12 @@ import java.util.Date;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.DefaultJasperReportsContext;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
@@ -29,12 +32,13 @@ public class inventario extends javax.swing.JFrame {
     public inventario() {
         initComponents();
          cargar();
-         jButton2.setVisible(false);
           Timer tiempo = new Timer(100, new inventario.horas());
         tiempo.start();
           Date sistema_fecha =new Date();
         SimpleDateFormat formato= new SimpleDateFormat("yyyy-MM-dd");
         fecha.setText(formato.format(sistema_fecha));
+        colorTabla rr = new colorTabla(2);
+        inventario.setDefaultRenderer(Object.class, rr);
     }
 class horas implements ActionListener {
 
@@ -53,7 +57,7 @@ void imprimir01() {
         for (int i = 0; i < inventario.getRowCount(); i++) {
 
             inventario_art mortizar = new inventario_art (inventario.getValueAt(i, 0).toString(),
-                    inventario.getValueAt(i, 1).toString(), inventario.getValueAt(i, 2).toString()+"", inventario.getValueAt(i, 3).toString()+ "");
+                    inventario.getValueAt(i, 1).toString(), inventario.getValueAt(i, 2).toString(), inventario.getValueAt(i, 3).toString());
 
             lista.add(mortizar);
 
@@ -62,10 +66,10 @@ void imprimir01() {
         
           
         try {
-            jr = (JasperReport) JRLoader.loadObjectFromFile("inventario.jasper");
+            jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/reportes/inventario.jasper"));
            // JOptionPane.showMessageDialog(null, "EL CODIGO ES " + sub_total01+sub_total02+sub_total03);
             HashMap parametro = new HashMap();
-              parametro.put("company", "PROVISIONES RAMOS AVE. 30 CABALLEROS, LOS REYES");
+              parametro.put("company", "TIENDA LA MUÑECA HATO DEL YAQUE EL TAMARINDO");
              parametro.put("hora", hora);
               parametro.put("fecha", fecha.getText());
                parametro.put("condicion", "INVENTARIO DE MERCANCIAS DE LA EMPRESA");
@@ -73,9 +77,10 @@ void imprimir01() {
           
            
             
-            JasperPrint jp = JasperFillManager.fillReport(jr, parametro, new JRBeanCollectionDataSource(lista));
+              JasperPrint jp = JasperFillManager.fillReport(jr, parametro, new JRBeanCollectionDataSource(lista));
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
+                
 //             JasperPrint jp = JasperFillManager.fillReport(jr, parametro,new JRBeanCollectionDataSource(lista));
 //             JasperViewer jv = new JasperViewer (jp, false);
 //             
@@ -159,7 +164,7 @@ DefaultTableModel modelo2 = (DefaultTableModel)inventario.getModel();
       
 
         String[] registros = new String[7];
-        String sql = "SELECT cod_art,desc_art,cant_art,pre_venta,valor_inventario FROM articulo ";
+        String sql = "SELECT cod_art,desc_art,cant_art,pre_venta,pre_compra FROM articulo ";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -169,7 +174,7 @@ DefaultTableModel modelo2 = (DefaultTableModel)inventario.getModel();
                 
                 registros[1] = rs.getString("desc_art");
                 registros[2] = rs.getString("cant_art");
-                registros[3] = rs.getString("valor_inventario");
+                registros[3] = (rs.getDouble("pre_compra")*rs.getDouble("cant_art"))+"";
                
                  modelo2.addRow(registros);
                }

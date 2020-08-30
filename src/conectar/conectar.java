@@ -18,7 +18,7 @@ Connection cn;
 public Connection connection(){
 try{
     Class.forName("org.gjt.mm.mysql.Driver");
-    cn = DriverManager.getConnection("jdbc:mysql://localhost/facturacion99?characterEncoding=latin1","root","duany2015");
+    cn = DriverManager.getConnection("jdbc:mysql://localhost/facturacion99?characterEncoding=latin1","root","7410852963");
     sentencia = cn.createStatement();
     System.out.println("Se Realizo la Conexion");
     

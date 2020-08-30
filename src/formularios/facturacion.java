@@ -68,7 +68,7 @@ public class facturacion extends javax.swing.JFrame {
             HashMap parametro = new HashMap();
             
             
-            parametro.put("company", "TIENDA LA MUÑECA HATO DEL YAQUE EL TAMARINDO  ");
+            parametro.put("company", "TIENDA LA MUÑECA HATO DEL YAQUE EL TAMARINDO");
              parametro.put("fecha", fecha.getText());
             parametro.put("hora", hora);
            
@@ -503,7 +503,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         jLabel9 = new javax.swing.JLabel();
         buscar_articulo = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        precio = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         cant = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -554,6 +553,7 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         cantidad = new javax.swing.JLabel();
         itbis = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        precio = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("FACTURACION");
@@ -619,7 +619,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         }
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\lupa.png")); // NOI18N
         jLabel9.setText("BUSCAR PRODUCTO");
 
         buscar_articulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -636,10 +635,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel10.setText("PRECIO");
-
-        precio.setEditable(false);
-        precio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        precio.setCaretColor(new java.awt.Color(0, 0, 153));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setText("CANTIDAD");
@@ -661,7 +656,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         });
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\productos.png")); // NOI18N
         jLabel12.setText("PRODUCTO");
 
         des_art.setEditable(false);
@@ -670,7 +664,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         des_art.setCaretColor(new java.awt.Color(0, 0, 153));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\centro-comercial.png")); // NOI18N
         jButton1.setText("Agregar Producto");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -689,7 +682,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\factura.png")); // NOI18N
         jLabel5.setText("FACTURA");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 13, -1, -1));
 
@@ -763,7 +755,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\lupa.png")); // NOI18N
         jButton2.setText("BUSCAR CLIENTE");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -818,7 +809,7 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lb_fecha3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb1)
                     .addComponent(rb3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -921,7 +912,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\cruzar.png")); // NOI18N
         jButton4.setText("Cancelar");
         jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -941,7 +931,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         });
 
         jButton5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\anadir (1).png")); // NOI18N
         jButton5.setText("Nuevo");
         jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -951,7 +940,6 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         });
 
         jButton7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\salida.png")); // NOI18N
         jButton7.setText("Salir");
         jButton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -1072,6 +1060,8 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
         jLabel1.setForeground(new java.awt.Color(0, 0, 102));
         jLabel1.setText("Online");
 
+        precio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.##"))));
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1092,8 +1082,8 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
                         .addComponent(des_art, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1151,12 +1141,13 @@ DefaultTableModel modelo2 = (DefaultTableModel)tabla_art.getModel();
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(des_art, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(cant, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(4, 4, 4))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1568,7 +1559,7 @@ reiniciarJTable(datos);
     private javax.swing.JLabel lb_fecha3;
     private javax.swing.JLabel lb_usuario;
     public static javax.swing.JCheckBox mayor;
-    private javax.swing.JTextField precio;
+    private javax.swing.JFormattedTextField precio;
     public static javax.swing.JRadioButton rb1;
     public static javax.swing.JRadioButton rb3;
     public static javax.swing.JTextField rnc;

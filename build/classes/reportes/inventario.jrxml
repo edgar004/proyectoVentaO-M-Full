@@ -11,13 +11,14 @@
 	<field name="tipo_articulo" class="java.lang.String"/>
 	<field name="descripcion" class="java.lang.String"/>
 	<field name="existencia" class="java.lang.String"/>
+	<field name="valor" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="80" splitType="Stretch">
 			<textField>
-				<reportElement x="4" y="0" width="590" height="37" uuid="a851b5d2-9992-41b4-97c5-fa93f4376286"/>
+				<reportElement x="132" y="0" width="384" height="37" uuid="a851b5d2-9992-41b4-97c5-fa93f4376286"/>
 				<textFieldExpression><![CDATA[$P{company}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -44,11 +45,11 @@
 	<columnHeader>
 		<band height="23" splitType="Stretch">
 			<staticText>
-				<reportElement x="4" y="2" width="140" height="20" uuid="4058ffb8-f097-4a90-a5b2-a4f2a99aad21"/>
+				<reportElement x="4" y="0" width="140" height="20" uuid="4058ffb8-f097-4a90-a5b2-a4f2a99aad21"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[CATEGORIA DE ART.]]></text>
+				<text><![CDATA[CODIGO]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="144" y="2" width="212" height="20" uuid="3d537d54-dcda-407c-8cc3-7289c68086f8"/>
@@ -63,6 +64,13 @@
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[EXISTENCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="2" width="100" height="20" uuid="9329f077-de9a-4e72-9304-b0c9ebc034f3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor inventario]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -81,8 +89,12 @@
 				<textFieldExpression><![CDATA[$F{existencia}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="4" y="20" width="452" height="1" uuid="a8168530-08bf-42ca-aa10-aa4992a2195f"/>
+				<reportElement x="4" y="20" width="573" height="1" uuid="a8168530-08bf-42ca-aa10-aa4992a2195f"/>
 			</line>
+			<textField>
+				<reportElement x="477" y="1" width="100" height="20" uuid="3cd117df-f6a9-4f17-b6af-d7ee0f5b1686"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

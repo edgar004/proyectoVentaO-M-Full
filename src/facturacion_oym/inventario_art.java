@@ -1,19 +1,21 @@
 
 package facturacion_oym;
 
+import javax.swing.JOptionPane;
+
 
 public class inventario_art {
    private String tipo_articulo;
     private String descripcion;
    
     private String existencia; 
-    private String valor_inventario; 
+    private String valor; 
     
      public inventario_art( String tipo_articulo, String descripcion, String existencia,String valor_inventario){
          this.tipo_articulo = tipo_articulo;
         this.descripcion = descripcion;
          this.existencia = existencia;  
-         this.valor_inventario=valor_inventario; 
+         this.valor=valor_inventario; 
     }
      public inventario_art(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -31,8 +33,8 @@ public class inventario_art {
         return descripcion;
     }
     
-      public String getValorInventario() {
-        return valor_inventario;
+      public String getValor() {
+        return valor;
     }
 
     public void setDescripcion(String descripcion) {
@@ -47,8 +49,8 @@ public class inventario_art {
         this.existencia = existencia;
     }
     
-     public void setValorInventario(String valor_inventario) {
-        this.valor_inventario = valor_inventario;
+     public void setValor(String valor_inventario) {
+        this.valor = valor_inventario;
     }
     
      

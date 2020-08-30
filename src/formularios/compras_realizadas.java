@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -18,9 +19,13 @@ public class compras_realizadas extends javax.swing.JFrame {
       Connection cn = con.connection();
     
     String txtbuscarimp ;
+    String txtbuscarimp2 ;
+
     public compras_realizadas() {
         initComponents();
         this.setLocationRelativeTo(null);
+          BuscarFactura("");
+
      
     }
 
@@ -28,14 +33,31 @@ public class compras_realizadas extends javax.swing.JFrame {
  
     try {
         //jDateChooser el nombre la variable  del componente jdatecgooser
-     Date  fecha = buscarr.getDate();
+     Date  fecha = buscarr1.getDate();
         DateFormat f=new SimpleDateFormat("yyyy-MM-dd");
         String fecha2=f.format(fecha);
  
         //textFecha nombre de la variable del componenten jtextfiel
         txtbuscarimp = fecha2;
     } catch (Exception e) {
+        txtbuscarimp=null;
     }
+    
+    try {
+        //jDateChooser el nombre la variable  del componente jdatecgooser
+     Date  fecha = buscarr2.getDate();
+        DateFormat f=new SimpleDateFormat("yyyy-MM-dd");
+        String fecha2=f.format(fecha);
+ 
+        //textFecha nombre de la variable del componenten jtextfiel
+        txtbuscarimp2 = fecha2;
+    } catch (Exception e) {
+         txtbuscarimp2=null;
+
+    }
+    
+    
+    
  
 }
          void BuscarFactura(String valor){
@@ -48,8 +70,20 @@ public class compras_realizadas extends javax.swing.JFrame {
 //          txtbuscarimp.setVisible(false);
     
     String [] datos  = new String[3];
-    String sql = "SELECT COMPRA,DATE_FORMAT(FECHA,'%d-%m-%Y') AS FECHA, total_compra FROM CONTADOR_COMPRA WHERE fecha='"+txtbuscarimp+"'";
-    
+        
+         String sql="";
+         if(txtbuscarimp!=null && txtbuscarimp2!=null){
+           sql = "SELECT COMPRA,DATE_FORMAT(FECHA,'%d-%m-%Y') AS FECHA, total_compra FROM CONTADOR_COMPRA  where fecha between CAST('"+txtbuscarimp+"' as Date) and CAST('"+txtbuscarimp2+"' as Date)";
+         }else if(txtbuscarimp!=null){
+         sql = "SELECT COMPRA,DATE_FORMAT(FECHA,'%d-%m-%Y') AS FECHA, total_compra FROM CONTADOR_COMPRA  where fecha >= CAST('"+txtbuscarimp+"' as Date)";
+
+         }else if(txtbuscarimp2!=null){
+          sql = "SELECT COMPRA,DATE_FORMAT(FECHA,'%d-%m-%Y') AS FECHA, total_compra FROM CONTADOR_COMPRA  where fecha <= CAST('"+txtbuscarimp2+"' as Date)";
+         }else{
+                      sql = "SELECT COMPRA,DATE_FORMAT(FECHA,'%d-%m-%Y') AS FECHA, total_compra FROM CONTADOR_COMPRA";
+ 
+         }
+         
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -130,9 +164,10 @@ public class compras_realizadas extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        buscarr = new com.toedter.calendar.JDateChooser();
+        buscarr2 = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        buscarr1 = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
         balance1 = new javax.swing.JTextField();
 
@@ -153,7 +188,6 @@ public class compras_realizadas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabla_compra);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\centro-comercial.png")); // NOI18N
         jLabel3.setText("COMPRAS REALIZADAS");
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
@@ -164,7 +198,6 @@ public class compras_realizadas extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\lupa.png")); // NOI18N
         jButton1.setText("BUSCAR");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -190,23 +223,27 @@ public class compras_realizadas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buscarr, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(buscarr1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buscarr2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(buscarr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                    .addComponent(buscarr2, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buscarr1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -311,7 +348,8 @@ this.dispose();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField balance1;
-    private com.toedter.calendar.JDateChooser buscarr;
+    private com.toedter.calendar.JDateChooser buscarr1;
+    private com.toedter.calendar.JDateChooser buscarr2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;

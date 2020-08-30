@@ -231,7 +231,10 @@ public class buscar_articulos extends javax.swing.JFrame {
                 crear_articulo.pre_consumidor.setText(tabla_art.getValueAt(fila, 9).toString());
                 crear_articulo.reorden.setText(tabla_art.getValueAt(fila, 10).toString());
                 crear_articulo.id_proveedor.setText(tabla_art.getValueAt(fila, 11).toString());
-                crear_articulo.itbis.setText(tabla_art.getValueAt(fila, 13).toString());
+                
+                
+                if(tabla_art.getValueAt(fila, 13).toString().equals("18.00")) crear_articulo.comboxItbis.setSelectedIndex(0);
+                else crear_articulo.comboxItbis.setSelectedIndex(1);
 
                 Date fecha = new Date(tabla_art.getValueAt(fila, 14).toString().split("/")[1]+"/"+tabla_art.getValueAt(fila, 14).toString().split("/")[2]+"/"+tabla_art.getValueAt(fila, 14).toString().split("/")[0]);
                 crear_articulo.txt_fecha.setDate(fecha);

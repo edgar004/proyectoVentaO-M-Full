@@ -178,7 +178,7 @@ windows.setLocationRelativeTo(null);
         reorden.setText("");
         pre_consumidor.setText("");
         cant.setText("");
-        itbis.setText("");
+        comboxItbis.setSelectedIndex(0);
          Date fechaActual = new Date();
         txt_fecha.setDate(fechaActual);
         id_art.requestFocus();
@@ -199,7 +199,7 @@ windows.setLocationRelativeTo(null);
         reorden.setEditable(true);
         id_proveedor.setEditable(true);
         id_proveedor.setEditable(true);
-        itbis.setEditable(true);
+        comboxItbis.setEditable(true);
         cant.setEditable(true);
         
         jButton1.setEnabled(true);
@@ -218,7 +218,7 @@ windows.setLocationRelativeTo(null);
         reorden.setEditable(false);
         id_proveedor.setEditable(false);
         id_proveedor.setEditable(false);
-        itbis.setEditable(false);
+        comboxItbis.setEditable(false);
         cant.setEditable(false);
         
          guardar.setEnabled(false);
@@ -239,7 +239,7 @@ windows.setLocationRelativeTo(null);
         pre_mayor.setText("");
         pre_consumidor.setText("");
         cant.setText("");
-        itbis.setText("");
+        comboxItbis.setSelectedIndex(0);
           Date fechaActual = new Date();
         txt_fecha.setDate(fechaActual);
         desactivar_campos();
@@ -261,7 +261,7 @@ windows.setLocationRelativeTo(null);
            sql125 = "INSERT INTO articulo (cod_art,id_marca,id_proveedor,desc_art,cate_art,talla_art,cant_art,pre_compra,pre_venta,pre_mayor,reorden,itbis,fecha_art) VALUES('"+id_art.getText()+"',"
                    + "'"+id_marca.getText()+"','"+id_proveedor.getText()+"',"
                    + "'"+des_art.getText()+"',"
-                   + "'"+categoria.getSelectedItem()+"','"+talla.getText()+"','"+cant.getText()+"','"+pre_com.getText()+"','"+pre_consumidor.getText()+"','"+pre_mayor.getText()+"','"+reorden.getText()+"','"+itbis.getText()+"','"+fecha01+"')";
+                   + "'"+categoria.getSelectedItem()+"','"+talla.getText()+"','"+cant.getText()+"','"+pre_com.getText()+"','"+pre_consumidor.getText()+"','"+pre_mayor.getText()+"','"+reorden.getText()+"','"+comboxItbis.getSelectedItem()+"','"+fecha01+"')";
                   
                   
            PreparedStatement psk22 = cn.prepareStatement(sql125);
@@ -308,11 +308,11 @@ windows.setLocationRelativeTo(null);
         jButton7 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        itbis = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         id_marca = new javax.swing.JTextField();
         reorden = new javax.swing.JFormattedTextField();
         talla = new javax.swing.JTextField();
+        comboxItbis = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         guardar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -498,7 +498,6 @@ windows.setLocationRelativeTo(null);
         jPanel2.add(pre_com, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 180, 25));
 
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\lupa.png")); // NOI18N
         jButton7.setText("PROVEEDOR");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -515,17 +514,7 @@ windows.setLocationRelativeTo(null);
         jLabel17.setText("ITBIS");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 40, 30));
 
-        itbis.setEditable(false);
-        itbis.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        itbis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itbisActionPerformed(evt);
-            }
-        });
-        jPanel2.add(itbis, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 110, 25));
-
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\lupa.png")); // NOI18N
         jButton3.setText("BUSCAR MARCA");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -570,6 +559,9 @@ windows.setLocationRelativeTo(null);
         });
         jPanel2.add(talla, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 180, 25));
 
+        comboxItbis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "18", "16" }));
+        jPanel2.add(comboxItbis, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 90, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 790, 240));
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
@@ -577,7 +569,6 @@ windows.setLocationRelativeTo(null);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         guardar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        guardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\salvar.png")); // NOI18N
         guardar.setText("Guardar");
         guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         guardar.setEnabled(false);
@@ -594,7 +585,6 @@ windows.setLocationRelativeTo(null);
         jPanel3.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 136, 40));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\modifi.png")); // NOI18N
         jButton4.setText("Modificar");
         jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.setEnabled(false);
@@ -606,7 +596,6 @@ windows.setLocationRelativeTo(null);
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 12, 148, 40));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\cruzar.png")); // NOI18N
         jButton2.setText("Eliminar");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setEnabled(false);
@@ -618,7 +607,6 @@ windows.setLocationRelativeTo(null);
         jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(671, 12, 145, 40));
 
         jButton6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\anadir (1).png")); // NOI18N
         jButton6.setText("Nuevo");
         jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -629,7 +617,6 @@ windows.setLocationRelativeTo(null);
         jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 12, 149, 40));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\salida.png")); // NOI18N
         jButton1.setText("Salir");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -642,13 +629,11 @@ windows.setLocationRelativeTo(null);
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 1030, 70));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\centro-comercial.png")); // NOI18N
         jLabel8.setText("REGISTRO DE ARTICULOS");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
         jButton8.setBackground(new java.awt.Color(204, 204, 204));
         jButton8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\centro-comercial.png")); // NOI18N
         jButton8.setText("BUSCAR ARTICULO");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -656,8 +641,6 @@ windows.setLocationRelativeTo(null);
             }
         });
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 230, 220, 50));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Desktop\\Proyecto duany\\proyectoVentaO-M\\src\\iconos\\caja-de-regalo.png")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 260, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -759,11 +742,11 @@ windows.setLocationRelativeTo(null);
             return;
         }
 
-        if (itbis.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL ITBIS");
-            itbis.requestFocus();
-            return;
-        }
+//        if (itbis.getText().equals("")){
+//            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL ITBIS");
+//            itbis.requestFocus();
+//            return;
+//        }
 
         try {
             PreparedStatement psU = cn.prepareStatement("update articulo set estado='no_existe' where cod_art='"+id_art.getText()+"'");
@@ -854,11 +837,11 @@ windows.setLocationRelativeTo(null);
             return;
         }
 
-        if (itbis.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL ITBIS");
-            itbis.requestFocus();
-            return;
-        }
+//        if (itbis.getText().equals("")){
+//            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL ITBIS");
+//            itbis.requestFocus();
+//            return;
+//        }
 
         double cantidad=Integer.parseInt(cant.getText());
 
@@ -900,11 +883,11 @@ windows.setLocationRelativeTo(null);
             return;
         }
 
-        if (Reorden < 0){
-            JOptionPane.showMessageDialog(null,"EN EL  ITBIS  DEBE INGRESAR VALORES MAYORES QUE 0");
-            itbis.requestFocus();
-            return;
-        }
+//        if (Reorden < 0){
+//            JOptionPane.showMessageDialog(null,"EN EL  ITBIS  DEBE INGRESAR VALORES MAYORES QUE 0");
+//            itbis.requestFocus();
+//            return;
+//        }
 
         if(premayor<precio_compra){
             JOptionPane.showMessageDialog(null,"EL PRECIO POR MAYOR NO DEBE SER MENOR QUE EL PRECIO COMPRA");
@@ -928,7 +911,7 @@ windows.setLocationRelativeTo(null);
             String fecha01 = fecha();
             PreparedStatement psU = cn.prepareStatement("UPDATE articulo SET cod_art='"+id_art.getText()+"', id_marca='"+id_marca.getText()+"'"
                 + ",id_proveedor='"+id_proveedor.getText()+"',desc_art ='"+des_art.getText()+"',cate_art= '"+categoria.getSelectedItem()+"',talla_art= '"+talla.getText()+"',"
-                + " cant_art = '"+cant.getText()+"',pre_compra='"+pre_com.getText()+"',pre_venta='"+pre_consumidor.getText()+"',pre_mayor='"+pre_mayor.getText()+"',reorden='"+reorden.getText()+"',itbis='"+itbis.getText()+"',fecha_art='"+fecha01+"' where cod_art='"+id_art.getText()+"'");
+                + " cant_art = '"+cant.getText()+"',pre_compra='"+pre_com.getText()+"',pre_venta='"+pre_consumidor.getText()+"',pre_mayor='"+pre_mayor.getText()+"',reorden='"+reorden.getText()+"',itbis='"+comboxItbis.getSelectedItem()+"',fecha_art='"+fecha01+"' where cod_art='"+id_art.getText()+"'");
 
             psU.executeUpdate();
             JOptionPane.showMessageDialog(null, "DATOS MODIFICADOS CON EXITO");
@@ -1026,11 +1009,11 @@ windows.setLocationRelativeTo(null);
             return;
         }
 
-        if (itbis.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL ITBIS");
-            itbis.requestFocus();
-            return;
-        }
+//        if (itbis.getText().equals("")){
+//            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL ITBIS");
+//            itbis.requestFocus();
+//            return;
+//        }
 
         double cantidad=Integer.parseInt(cant.getText());
 
@@ -1072,11 +1055,11 @@ windows.setLocationRelativeTo(null);
             return;
         }
 
-        if (Reorden < 0){
-            JOptionPane.showMessageDialog(null,"EN EL  ITBIS  DEBE INGRESAR VALORES MAYORES QUE 0");
-            itbis.requestFocus();
-            return;
-        }
+//        if (Reorden < 0){
+//            JOptionPane.showMessageDialog(null,"EN EL  ITBIS  DEBE INGRESAR VALORES MAYORES QUE 0");
+//            itbis.requestFocus();
+//            return;
+//        }
 
         if(premayor<precio_compra){
             JOptionPane.showMessageDialog(null,"EL PRECIO POR MAYOR NO DEBE SER MENOR QUE EL PRECIO COMPRA");
@@ -1129,10 +1112,6 @@ windows.setLocationRelativeTo(null);
         windows.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void itbisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itbisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itbisActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         buscador_proveedor windows = new buscador_proveedor("articulo");
         windows.setVisible(true);
@@ -1157,7 +1136,7 @@ windows.setLocationRelativeTo(null);
     }//GEN-LAST:event_pre_comActionPerformed
 
     private void id_proveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_proveedorActionPerformed
-        itbis.requestFocus();
+        //itbis.requestFocus();
     }//GEN-LAST:event_id_proveedorActionPerformed
 
     private void pre_mayorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pre_mayorKeyTyped
@@ -1250,12 +1229,12 @@ int validarCODIGO(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JFormattedTextField cant;
     public static javax.swing.JComboBox<String> categoria;
+    public static javax.swing.JComboBox<String> comboxItbis;
     public static javax.swing.JTextField des_art;
     private javax.swing.JButton guardar;
     public static javax.swing.JTextField id_art;
     public static javax.swing.JTextField id_marca;
     public static javax.swing.JTextField id_proveedor;
-    public static javax.swing.JTextField itbis;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
